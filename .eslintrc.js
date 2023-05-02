@@ -15,6 +15,9 @@ module.exports = {
     "no-trailing-spaces": "off",
     "no-console": "off",
     "indent": "off",
+    "no-unused-vars": "off",
+    "no-template-curly-in-string": "off",
+    "quotes": "off",
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off'
   }
