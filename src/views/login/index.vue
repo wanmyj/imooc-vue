@@ -9,35 +9,34 @@
           <h3 class="title">User Login</h3>
         </div>
         <!-- username -->
-        <el-form-item>
+        <el-form-item prop="username">
           <span class="svg-container">
-            <el-icon>
-              <Avatar />
-            </el-icon>
-            <el-input
-              placeholder="username" 
-              name="username" 
-              type="text"
-              v-model="loginForm.username"
-            ></el-input>
+            <svg-icon icon="user" />
           </span>
+          <el-input
+            placeholder="username" 
+            name="username" 
+            type="text"
+            v-model="loginForm.username"
+          />
         </el-form-item>
+    
         <!-- password -->
-        <el-form-item>
+        <el-form-item prop="password">
           <span class="svg-container">
-            <span class="svg-container">
-              <svg-icon icon="https://res.lgdsunday.club/user.svg"></svg-icon>
-            </span>
+              <svg-icon icon="password"></svg-icon>
           </span>
           <el-input 
             placeholder="password" 
             name="password"
             v-model="loginForm.password"
+            :type="passwordType"
           ></el-input>
           <span class="show-pwd">
-            <el-icon>
-              <Avatar />
-            </el-icon>
+            <span class="svg-container" @click="onChangePwdType">
+              <svg-icon :icon="passwordType === 'password' ? 'eye' : 'eye-open'">
+              </svg-icon>
+            </span>
           </span>
         </el-form-item>
   
@@ -49,10 +48,8 @@
   
 <script setup>
   // @ is an alias to /src
-  import { Avatar } from '@element-plus/icons'
   import { ref } from 'vue'
-  import SvgIcon from '@/components/SvgIcon/index.vue'
-
+  import { validatePassword } from './rules'
   // 数据源
   const loginForm = ref({
     username: 'super-admin',
@@ -63,16 +60,28 @@
     username: [
       {
         required: true,
-        trigger: 'blur'
+        trigger: 'blur',
+        message: '必填'
       }
     ],
     password: [
       {
         required: true,
-        trigger: 'blur'
+        trigger: 'blur',
+        validator: validatePassword()
       }
     ]
   })
+
+  // 处理密码框文本显示状态
+  const passwordType = ref('password')
+  const onChangePwdType = () => {
+    if (passwordType.value === 'password') {
+      passwordType.value = 'text'
+    } else {
+      passwordType.value = 'password'
+    }
+  }
 
 </script>
   

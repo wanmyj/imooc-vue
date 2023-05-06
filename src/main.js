@@ -6,7 +6,13 @@ import installElementPlus from './plugins/element'
 
 // import scss
 import '@/styles/index.scss'
+// 导入 svgIcon
+import installIcons from '@/icons'
 
 const app = createApp(App)
 installElementPlus(app)
-app.use(store).use(router).mount('#app')
+installIcons(app)
+app
+  .use(store)
+  .use(router)
+  .mount('#app')
