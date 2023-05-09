@@ -4,6 +4,7 @@
         class="login-form"
         :model="loginForm"
         :rules="loginRules"
+        ref="loginFormRef"
       >
         <div class="title-container">
           <h3 class="title">User Login</h3>
@@ -41,7 +42,13 @@
         </el-form-item>
   
         <!-- login button -->
-        <el-button type="primary" style="width: 100%; margin-bottom: 30px;">Login Button</el-button>
+        <el-button 
+          type="primary" 
+          style="width: 100%; 
+          margin-bottom: 30px;"
+          @click="handleLogin"
+          :loading="loading"
+        >Login Button</el-button>
       </el-form>
     </div>
   </template>
@@ -50,6 +57,7 @@
   // @ is an alias to /src
   import { ref } from 'vue'
   import { validatePassword } from './rules'
+  import { useStore } from 'vuex'
   // 数据源
   const loginForm = ref({
     username: 'super-admin',
@@ -83,6 +91,31 @@
     }
   }
 
+  // 处理登录
+  const loading = ref(false)
+  const store = useStore()
+  const loginFormRef = ref(null)
+  const handleLogin = () => {
+    // 1. 进行表单校验
+    console.log(loginForm.value)
+    loginFormRef.value.validate((valid) => {
+      if (!valid) return
+      // 2. 触发登录动作
+      console.log(store)
+      loading.value = true
+      store
+        .dispatch('user/login', loginForm.value)
+        .then(() => {
+          loading.value = false
+          // todo 
+          // 3. 登陆后处理
+        })
+        .catch(err => {
+          console.log(err)
+          loading.value = false
+        })
+    })
+  }
 </script>
   
 <style lang="scss" scoped>

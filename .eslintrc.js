@@ -16,6 +16,7 @@ module.exports = {
     "no-console": "off",
     "indent": "off",
     "no-unused-vars": "off",
+    "quote-props": "off",
     "no-template-curly-in-string": "off",
     "quotes": "off",
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
