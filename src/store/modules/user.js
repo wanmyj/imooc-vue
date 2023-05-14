@@ -8,12 +8,16 @@ export default {
   // true -> 单独模块
   namespaced: true,
   state: () => ({
-    token: getItem(TOKEN) || ''
+    token: getItem(TOKEN) || '',
+    userInfo: {}
   }),
   mutations: {
     setToken (state, token) {
       state.token = token
       setItem(TOKEN, token)
+    }, 
+    setUserInfo (state, userInfo) {
+      state.userInfo = userInfo
     }
   },
   actions: {
@@ -39,6 +43,12 @@ export default {
             reject(err)
           })
       })
+    },
+    // get user info
+    async getUserInfo (context) {
+      const res = await getUserInfo()
+      this.commit('user/setUserInfo', res)
+      return res
     }
   }
 }

@@ -3,14 +3,13 @@
 // import { generateColors } from '@/utils/theme'
 
 const getters = {
-  token: state => state.user.token
-}
+  token: state => state.user.token,
   /**
    * @returns true 表示已存在用户信息
    */
-  // hasUserInfo: (state) => {
-  //   return JSON.stringify(state.user.userInfo) !== '{}'
-  // },
+  hasUserInfo: (state) => {
+    return JSON.stringify(state.user.userInfo) !== '{}'
+  }
   // userInfo: (state) => state.user.userInfo,
   // cssVar: (state) => {
   //   return {
@@ -22,4 +21,5 @@ const getters = {
   // language: (state) => state.app.language,
   // mainColor: (state) => state.theme.mainColor,
   // tagsViewList: (state) => state.app.tagsViewList
+}
 export default getters
