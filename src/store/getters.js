@@ -9,8 +9,8 @@ const getters = {
    */
   hasUserInfo: (state) => {
     return JSON.stringify(state.user.userInfo) !== '{}'
-  }
-  // userInfo: (state) => state.user.userInfo,
+  },
+  userInfo: (state) => state.user.userInfo
   // cssVar: (state) => {
   //   return {
   //     ...state.theme.variables,
