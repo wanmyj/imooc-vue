@@ -3,7 +3,7 @@ import md5 from 'md5'
 import { setItem, getItem, removeAllItem } from '@/utils/storage'
 import { TOKEN } from '@/constant'
 import router from '@/router'
-
+import { setTimeStamp } from '@/utils/auth'
 export default {
   // true -> 单独模块
   namespaced: true,
@@ -37,6 +37,8 @@ export default {
             // 登录后操作
             // 跳转
             router.push('/')
+            // 保存登录时间
+            setTimeStamp()
             resolve()
           })
           .catch((err) => {
