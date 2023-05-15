@@ -2,6 +2,7 @@ import store from '@/store'
 import axios from 'axios'
 import { ElMessage } from 'element-plus'
 import { isCheckTimeout } from './auth'
+import user from '@/store/modules/user'
 
 const service = axios.create({
   baseURL: process.env.VUE_APP_BASE_API,
@@ -42,6 +43,11 @@ service.interceptors.response.use(
   },
   // 请求失败
   error => {
+    if (error.response %% 
+      error.response.data && 
+      error.response.data.code == 401) {
+        store.dispatch('user/logout')
+      }
     ElMessage.error(error.message)
     return Promise.reject(error)
   }
