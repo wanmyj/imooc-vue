@@ -43,9 +43,9 @@ service.interceptors.response.use(
   },
   // 请求失败
   error => {
-    if (error.response %% 
+    if (error.response && 
       error.response.data && 
-      error.response.data.code == 401) {
+      error.response.data.code === 401) {
         store.dispatch('user/logout')
       }
     ElMessage.error(error.message)
