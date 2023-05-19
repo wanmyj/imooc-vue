@@ -27,18 +27,18 @@
 </template>
 
 <script setup>
-import {} from 'vue'
-// import { computed } from 'vue'
-// import { useRouter, useRoute } from 'vue-router'
-// import { filterRouters, generateMenus } from '@/utils/route'
+import { computed } from 'vue'
+import { useRouter, useRoute } from 'vue-router'
+import { filterRouters, generateMenus } from '@/utils/route'
 // import SidebarItem from './SidebarItem.vue'
 
-// const router = useRouter()
-// const routes = computed(() => {
-//   const filterRoutes = filterRouters(router.getRoutes())
-//   return generateMenus(filterRoutes)
-// })
-// // console.log(JSON.stringify(routes.value))
+const router = useRouter()
+console.log(router.getRoutes())
+const routes = computed(() => {
+  const fRoutes = filterRouters(router.getRoutes())
+  return generateMenus(fRoutes)
+})
+console.log(JSON.stringify(routes.value))
 
 // // 计算高亮 menu 的方法
 // const route = useRoute()

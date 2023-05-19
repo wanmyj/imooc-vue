@@ -17,7 +17,7 @@ const privateRouters = [
         path: '/user/manage',
         name: 'userManage',
         component: () => import('@/views/user-manage/index'),
-        mata: {
+        meta: {
           title: 'userManage',
           icon: 'personnel-manage'
         }
@@ -26,8 +26,8 @@ const privateRouters = [
         path: '/user/role',
         name: 'userRole',
         component: () => import('@/views/role-list/index'),
-        mata: {
-          title: 'userRole',
+        meta: {
+          title: 'roleList',
           icon: 'role'
         }
       },
@@ -35,7 +35,7 @@ const privateRouters = [
         path: '/user/permission',
         component: () => import('@/views/permission-list/index'),
         name: 'userPermission',
-        mata: {
+        meta: {
           title: 'permissionList',
           icon: 'permission'
         }
@@ -44,7 +44,7 @@ const privateRouters = [
         path: '/user/info/:id',
         name: 'userInfo',
         component: () => import('@/views/user-info/index'),
-        mata: {
+        meta: {
           title: 'userInfo'
         }
       },
@@ -52,7 +52,7 @@ const privateRouters = [
         path: '/user/import',
         name: 'import',
         component: () => import('@/views/import/index'),
-        mata: {
+        meta: {
           title: 'excelImport'
         }
       }
