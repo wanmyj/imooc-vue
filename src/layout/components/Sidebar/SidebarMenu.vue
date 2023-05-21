@@ -1,10 +1,11 @@
 <template>
   <!-- 一级 menu 菜单 -->
   <el-menu
+    :default-active="activeMenu"
     :unique-opened="true"
-    background-color="#545c64"
-    text-color="#fff"
-    active-text-color="#ffd04b"
+    :background-color="$store.getters.cssVar.menuBg"
+    :text-color="$store.getters.cssVar.menuText"
+    :active-text-color="$store.getters.cssVar.menuActiveText"
     router
   >
     <sidebar-item 
@@ -31,9 +32,9 @@ const routes = computed(() => {
 console.log(JSON.stringify(routes.value))
 
 // // 计算高亮 menu 的方法
-// const route = useRoute()
-// const activeMenu = computed(() => {
-//   const { path } = route
-//   return path
-// })
+const route = useRoute()
+const activeMenu = computed(() => {
+  const { path } = route
+  return path
+})
 </script>
