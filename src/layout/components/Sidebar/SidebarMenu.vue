@@ -7,22 +7,11 @@
     active-text-color="#ffd04b"
     router
   >
-    <!-- 子集 menu -->
-    <el-submenu index="1">
-      <template #title>
-        <i class="el-icon-location"></i>
-        <span>导航①</span>
-      </template>
-      <el-menu-item index="1-1">选项1</el-menu-item>
-      <el-menu-item index="1-2">选项2</el-menu-item>
-    </el-submenu>
-    <!-- 具体菜单 -->
-    <el-menu-item index="2">
-      <i class="el-icon-location"></i>
-      <template #title>
-        导航si  
-      </template>
-    </el-menu-item>
+    <sidebar-item 
+      v-for="item in routes" 
+      :key="item.path" 
+      :route="item"
+    ></sidebar-item>
   </el-menu>
 </template>
 
@@ -30,6 +19,7 @@
 import { computed } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import { filterRouters, generateMenus } from '@/utils/route'
+import SidebarItem from './SidebarItem.vue'
 // import SidebarItem from './SidebarItem.vue'
 
 const router = useRouter()
