@@ -14,7 +14,6 @@
   
 <script setup>
   import { isExternal as external } from '@/utils/validate'
-  import { use } from 'element-plus/lib/locale'
   import { defineProps, computed } from 'vue'
   const props = defineProps({
     // icon 
