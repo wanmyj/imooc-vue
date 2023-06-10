@@ -12,13 +12,13 @@ const getters = {
   },
   userInfo: (state) => state.user.userInfo, 
   sidebarOpened: (state) => state.app.sidebarOpened,
+  language: (state) => state.app.language,
   cssVar: (state) => variables
   //   return {
   //     ...state.theme.variables,
   //     ...generateColors(getItem(MAIN_COLOR))
   //   }
   // },
-  // language: (state) => state.app.language,
   // mainColor: (state) => state.theme.mainColor,
   // tagsViewList: (state) => state.app.tagsViewList
 }
