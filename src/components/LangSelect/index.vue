@@ -5,7 +5,7 @@
     @command="handleSetLanguage"
   >
     <div>
-      <el-tooltip content="国际化" :effect="effect">
+      <el-tooltip :content="$t('msg.navBar.lang')" :effect="effect">
         <svg-icon icon="language" />
       </el-tooltip>
     </div>
@@ -56,14 +56,11 @@ const i18n = useI18n()
 // 切换语言的方法
 const handleSetLanguage = (lang) => {
   // 切换i18n的locale
-  console.log("echo 1")
   i18n.locale.value = lang
-  console.log("echo 2")
   // i18n.global.locale.value = lang
   // console.log(t)
   // 修改vuex保存的language
   store.commit('app/setLanguage', lang)
-  console.log("echo 3")
   // 提示
   ElMessage.success(i18n.t('msg.toast.switchLangSuccess'))
 }

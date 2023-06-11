@@ -1,36 +1,35 @@
-<template lang="">
-  <div>
-    <div class="navbar">
-      <!-- 汉堡 -->
-      <hamburger class="hamburger-container" />
-      <breadcrumb class="breadcrumb-container" />
-      <div class="right-menu">
-        <lang-select class="right-menu-item hover-effect" />
-        <!-- profile pic -->
-        <el-dropdown class="avatar-container" trigger="click">
-          <div class="avatar-wrapper">
-            <el-avatar
-              shape="square" 
-              :size="40" 
-              :src="$store.getters.userInfo.avatar"
-            ></el-avatar>
-            <i class="el-icon-s-tools"></i>
-          </div>
-          <template #dropdown>
-            <el-dropdown-menu class="user-dropdown">
-              <router-link to="/">
-                <el-dropdown-item>{{ $t('msg.navBar.home') }}</el-dropdown-item>
-              </router-link>
-              <a target="__blank" href="#">
-                <el-dropdown-item>{{ $t('msg.navBar.course') }}</el-dropdown-item>
-              </a>
-              <el-dropdown-item devided @click="logout">
-                {{ $t('msg.navBar.logout') }}
-              </el-dropdown-item>
-            </el-dropdown-menu>
-          </template>
-        </el-dropdown>
-      </div>
+<template>
+  <div class="navbar">
+    <!-- 汉堡 -->
+    <hamburger class="hamburger-container" />
+    <breadcrumb class="breadcrumb-container" />
+    <div class="right-menu">
+      <theme-picker class="right-menu-item hover-effect"></theme-picker>
+      <lang-select class="right-menu-item hover-effect" />
+      <!-- profile pic -->
+      <el-dropdown class="avatar-container" trigger="click">
+        <div class="avatar-wrapper">
+          <el-avatar
+            shape="square" 
+            :size="40" 
+            :src="$store.getters.userInfo.avatar"
+          ></el-avatar>
+          <i class="el-icon-s-tools"></i>
+        </div>
+        <template #dropdown>
+          <el-dropdown-menu class="user-dropdown">
+            <router-link to="/">
+              <el-dropdown-item>{{ $t('msg.navBar.home') }}</el-dropdown-item>
+            </router-link>
+            <a target="__blank" href="#">
+              <el-dropdown-item>{{ $t('msg.navBar.course') }}</el-dropdown-item>
+            </a>
+            <el-dropdown-item devided @click="logout">
+              {{ $t('msg.navBar.logout') }}
+            </el-dropdown-item>
+          </el-dropdown-menu>
+        </template>
+      </el-dropdown>
     </div>
   </div>
 </template>
@@ -40,6 +39,7 @@ import { useStore } from 'vuex'
 import Hamburger from '@/components/Hamburger/index'
 import Breadcrumb from '@/components/Breadcrumb/index'
 import LangSelect from '@/components/LangSelect/index'
+import ThemePicker from '@/components/ThemeSelect/index'
 
 const store = useStore()
 const logout = () => {
