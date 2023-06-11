@@ -30,7 +30,6 @@ const routes = computed(() => {
   const fRoutes = filterRouters(router.getRoutes())
   return generateMenus(fRoutes)
 })
-console.log(JSON.stringify(routes.value))
 
 // // 计算高亮 menu 的方法
 const route = useRoute()
