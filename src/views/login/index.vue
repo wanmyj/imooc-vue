@@ -7,7 +7,7 @@
         ref="loginFormRef"
       >
         <div class="title-container">
-          <h3 class="title">User Login</h3>
+          <h3 class="title">{{ $t('msg.login.title') }}</h3>
           <lang-select class="lang-select"></lang-select>
         </div>
         <!-- username -->
@@ -49,7 +49,9 @@
           margin-bottom: 30px;"
           @click="handleLogin"
           :loading="loading"
-        >Login Button</el-button>
+        >{{ $t('msg.login.loginBtn') }}</el-button>
+
+        <div class="tips" v-html="$t('msg.login.desc')"></div>
       </el-form>
     </div>
   </template>

@@ -1,19 +1,17 @@
 import { createI18n } from 'vue-i18n'
-// import mZhLocale from './lang/zh'
-// import mEnLocale from './lang/en'
+import mZhLocale from './lang/zh'
+import mEnLocale from './lang/en'
 import store from '@/store'
 
 const messages = {
   en: {
     msg: {
-      test: 'enenen'
-      // ...mEnLocale
+      ...mEnLocale
     }
   },
   zh: {
     msg: {
-      test: 'zhzhzh'
-      // ...mZhLocale
+      ...mZhLocale
     }
   }
 }
