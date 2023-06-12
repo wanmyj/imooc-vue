@@ -1,6 +1,6 @@
 import { getItem, setItem } from '@/utils/storage'
 import { MAIN_COLOR, DEFAULT_COLOR } from '@/constant'
-import variables from '@/styles/variables.scss'
+import variables from '@/styles/variables.module.scss'
 export default {
   namespaced: true,
   state: () => ({
@@ -11,7 +11,7 @@ export default {
     /**
      * 设置主题色
      */
-    setMainColor(state, newColor) {
+    setMainColor (state, newColor) {
       state.mainColor = newColor
       setItem(MAIN_COLOR, newColor)
       state.variables.menuBg = newColor
