@@ -1,7 +1,6 @@
-// import { MAIN_COLOR } from '@/constant'
-// import { getItem } from '@/utils/storage'
-// import { generateColors } from '@/utils/theme'
-import variables from '@/styles/variables.module.scss'
+import { MAIN_COLOR } from '@/constant'
+import { getItem } from '@/utils/storage'
+import { generateColors } from '@/utils/theme'
 const getters = {
   token: state => state.user.token,
   /**
@@ -14,11 +13,10 @@ const getters = {
   sidebarOpened: (state) => state.app.sidebarOpened,
   language: (state) => state.app.language,
   mainColor: (state) => state.theme.mainColor,
-  cssVar: (state) => variables
-  //   return {
-  //     ...state.theme.variables,
-  //     ...generateColors(getItem(MAIN_COLOR))
-  //   }
+  cssVar: (state) => ({
+    ...state.theme.variables,
+    ...generateColors(getItem(MAIN_COLOR))
+  })
   // },
   // mainColor: (state) => state.theme.mainColor,
   // tagsViewList: (state) => state.app.tagsViewList
