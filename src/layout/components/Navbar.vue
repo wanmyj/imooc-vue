@@ -4,6 +4,7 @@
     <hamburger class="hamburger-container" />
     <breadcrumb class="breadcrumb-container" />
     <div class="right-menu">
+      <screenfull class="right-menu-item hover-effect" />
       <theme-picker class="right-menu-item hover-effect"></theme-picker>
       <lang-select class="right-menu-item hover-effect" />
       <!-- profile pic -->
@@ -40,6 +41,7 @@ import Hamburger from '@/components/Hamburger/index'
 import Breadcrumb from '@/components/Breadcrumb/index'
 import LangSelect from '@/components/LangSelect/index'
 import ThemePicker from '@/components/ThemeSelect/index'
+import Screenfull from '@/components/Screenfull/index'
 
 const store = useStore()
 const logout = () => {
